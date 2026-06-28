@@ -512,6 +512,9 @@
             updateDigit('countdown-hours', pad(remaining.hours));
             updateDigit('countdown-mins', pad(remaining.mins));
             updateDigit('countdown-secs', pad(remaining.secs));
+
+            // ── Dynamic tab title ──
+            document.title = `${remaining.days}d ${pad(remaining.hours)}h ${pad(remaining.mins)}m — Balik Surabaya`;
         }
 
         // ─── Sparkle particles ───
