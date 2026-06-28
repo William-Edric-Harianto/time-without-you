@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +9,9 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Sacramento&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&family=Sacramento&display=swap"
+        rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
@@ -42,7 +45,8 @@
             box-sizing: border-box;
         }
 
-        html, body {
+        html,
+        body {
             height: 100%;
             overflow: hidden;
         }
@@ -54,11 +58,25 @@
         }
 
         @keyframes gradientDrift {
-            0% { background-position: 0% 50%; }
-            25% { background-position: 100% 0%; }
-            50% { background-position: 100% 50%; }
-            75% { background-position: 0% 100%; }
-            100% { background-position: 0% 50%; }
+            0% {
+                background-position: 0% 50%;
+            }
+
+            25% {
+                background-position: 100% 0%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            75% {
+                background-position: 0% 100%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
         }
 
         /* Floating orbs */
@@ -73,39 +91,62 @@
         }
 
         .orb-1 {
-            width: 300px; height: 300px;
+            width: 300px;
+            height: 300px;
             background: radial-gradient(circle, #93c5fd, #a5b4fc);
-            top: -80px; left: -80px;
+            top: -80px;
+            left: -80px;
             animation-duration: 25s;
         }
+
         .orb-2 {
-            width: 250px; height: 250px;
+            width: 250px;
+            height: 250px;
             background: radial-gradient(circle, #c4b5fd, #a5b4fc);
-            bottom: -60px; right: -60px;
+            bottom: -60px;
+            right: -60px;
             animation-duration: 30s;
             animation-delay: -5s;
         }
+
         .orb-3 {
-            width: 200px; height: 200px;
+            width: 200px;
+            height: 200px;
             background: radial-gradient(circle, #bfdbfe, #ddd6fe);
-            top: 50%; left: 50%;
+            top: 50%;
+            left: 50%;
             transform: translate(-50%, -50%);
             animation-duration: 35s;
             animation-delay: -10s;
         }
 
         @keyframes floatOrb {
-            0%   { transform: translate(0, 0) scale(1); }
-            25%  { transform: translate(40px, -30px) scale(1.05); }
-            50%  { transform: translate(-20px, 20px) scale(0.95); }
-            75%  { transform: translate(30px, 40px) scale(1.02); }
-            100% { transform: translate(0, 0) scale(1); }
+            0% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(40px, -30px) scale(1.05);
+            }
+
+            50% {
+                transform: translate(-20px, 20px) scale(0.95);
+            }
+
+            75% {
+                transform: translate(30px, 40px) scale(1.02);
+            }
+
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
         }
 
         /* Sparkle particles */
         .sparkle {
             position: fixed;
-            width: 4px; height: 4px;
+            width: 4px;
+            height: 4px;
             background: white;
             border-radius: 50%;
             pointer-events: none;
@@ -115,10 +156,24 @@
         }
 
         @keyframes sparkleFloat {
-            0%   { opacity: 0; transform: translateY(0) scale(0); }
-            10%  { opacity: 0.8; transform: translateY(-20px) scale(1); }
-            50%  { opacity: 0.4; }
-            100% { opacity: 0; transform: translateY(-120px) scale(0.3); }
+            0% {
+                opacity: 0;
+                transform: translateY(0) scale(0);
+            }
+
+            10% {
+                opacity: 0.8;
+                transform: translateY(-20px) scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 0;
+                transform: translateY(-120px) scale(0.3);
+            }
         }
 
         /* Glass card */
@@ -139,8 +194,9 @@
             text-align: center;
             font-variant-numeric: tabular-nums;
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1),
-                        opacity 0.3s ease;
+                opacity 0.3s ease;
         }
+
         .time-digit.flip {
             transform: translateY(-6px);
             opacity: 0.4;
@@ -150,18 +206,34 @@
         .colon-pulse {
             animation: colonPulse 2s ease-in-out infinite;
         }
+
         @keyframes colonPulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.3;
+            }
         }
 
         /* Subtle breathing animation for labels */
         .breathe {
             animation: breathe 4s ease-in-out infinite;
         }
+
         @keyframes breathe {
-            0%, 100% { opacity: 0.7; }
-            50% { opacity: 1; }
+
+            0%,
+            100% {
+                opacity: 0.7;
+            }
+
+            50% {
+                opacity: 1;
+            }
         }
 
         /* Divider line */
@@ -173,8 +245,10 @@
         /* ─── Airplane animation ─── */
         .airplane-layer {
             position: fixed;
-            top: 0; left: 0;
-            width: 100%; height: 100%;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             pointer-events: none;
             z-index: 2;
             overflow: hidden;
@@ -219,16 +293,32 @@
             transform: translateY(30px);
             animation: fadeUp 1s ease forwards;
         }
+
         @keyframes fadeUp {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
-        .fade-up-delay-1 { animation-delay: 0.2s; }
-        .fade-up-delay-2 { animation-delay: 0.5s; }
-        .fade-up-delay-3 { animation-delay: 0.8s; }
-        .fade-up-delay-4 { animation-delay: 1.1s; }
+        .fade-up-delay-1 {
+            animation-delay: 0.2s;
+        }
+
+        .fade-up-delay-2 {
+            animation-delay: 0.5s;
+        }
+
+        .fade-up-delay-3 {
+            animation-delay: 0.8s;
+        }
+
+        .fade-up-delay-4 {
+            animation-delay: 1.1s;
+        }
     </style>
 </head>
+
 <body class="font-sans text-slate-700 h-full">
 
     <!-- Floating orbs background -->
@@ -244,9 +334,8 @@
         <svg class="airplane-svg" id="airplane-svg" viewBox="0 0 1000 600" preserveAspectRatio="none">
             <!-- Dotted trail paths -->
             <path id="flight-path" class="trail-path"
-                  d="M -40,420 C 120,380 200,180 350,200 S 500,380 600,280 S 780,100 1040,160" />
-            <path class="trail-path-2"
-                  d="M -40,420 C 120,380 200,180 350,200 S 500,380 600,280 S 780,100 1040,160" />
+                d="M -40,420 C 120,380 200,180 350,200 S 500,380 600,280 S 780,100 1040,160" />
+            <path class="trail-path-2" d="M -40,420 C 120,380 200,180 350,200 S 500,380 600,280 S 780,100 1040,160" />
             <!-- Airplane SVG icon -->
             <g id="plane-group">
                 <polygon id="plane-shape" points="0,-8 -3,8 0,5 3,8" fill="rgba(100,160,220,0.7)" />
@@ -263,12 +352,13 @@
                 time without you
             </h1>
             <p class="text-xs sm:text-sm text-slate-400 font-light tracking-widest uppercase breathe">
-                every second counts
+                annyeong chagi
             </p>
         </div>
 
         <!-- Time Elapsed Card -->
-        <div class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 w-full max-w-lg mb-4 sm:mb-6 fade-up fade-up-delay-1">
+        <div
+            class="glass rounded-2xl sm:rounded-3xl p-4 sm:p-6 md:p-8 w-full max-w-lg mb-4 sm:mb-6 fade-up fade-up-delay-1">
             <p class="text-center text-xs sm:text-sm font-medium text-slate-400 tracking-widest uppercase mb-3 sm:mb-4">
                 Time Without You
             </p>
@@ -280,7 +370,8 @@
                     </div>
                     <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Days</p>
                 </div>
-                <span class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+                <span
+                    class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
                 <!-- Hours -->
                 <div class="text-center">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
@@ -288,7 +379,8 @@
                     </div>
                     <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Hours</p>
                 </div>
-                <span class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+                <span
+                    class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
                 <!-- Minutes -->
                 <div class="text-center">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
@@ -296,7 +388,8 @@
                     </div>
                     <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Mins</p>
                 </div>
-                <span class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+                <span
+                    class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
                 <!-- Seconds -->
                 <div class="text-center">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
@@ -323,7 +416,8 @@
                     </div>
                     <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Days</p>
                 </div>
-                <span class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+                <span
+                    class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
                 <!-- Hours -->
                 <div class="text-center">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
@@ -331,7 +425,8 @@
                     </div>
                     <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Hours</p>
                 </div>
-                <span class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+                <span
+                    class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
                 <!-- Minutes -->
                 <div class="text-center">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
@@ -339,7 +434,8 @@
                     </div>
                     <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Mins</p>
                 </div>
-                <span class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+                <span
+                    class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
                 <!-- Seconds -->
                 <div class="text-center">
                     <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
@@ -351,7 +447,8 @@
         </div>
 
         <!-- Date range label -->
-        <p class="text-[10px] sm:text-xs text-slate-400/70 mt-4 sm:mt-6 tracking-wider font-light fade-up fade-up-delay-4">
+        <p
+            class="text-[10px] sm:text-xs text-slate-400/70 mt-4 sm:mt-6 tracking-wider font-light fade-up fade-up-delay-4">
             27 Jun 2026, 08:00 — 11 Aug 2026, 23:59
         </p>
 
@@ -360,7 +457,7 @@
     <script>
         // ─── Hard-coded dates (local time) ───
         const START_TIME = new Date(2026, 5, 27, 8, 0, 0);  // Jun 27, 2026 08:00:00
-        const END_TIME   = new Date(2026, 7, 11, 23, 59, 59); // Aug 11, 2026 23:59:59
+        const END_TIME = new Date(2026, 7, 11, 23, 59, 59); // Aug 11, 2026 23:59:59
 
         // ─── Previous values for flip animation ───
         const prev = {
@@ -386,10 +483,10 @@
         }
 
         function calcTimeParts(totalSeconds) {
-            const days  = Math.floor(totalSeconds / 86400);
+            const days = Math.floor(totalSeconds / 86400);
             const hours = Math.floor((totalSeconds % 86400) / 3600);
-            const mins  = Math.floor((totalSeconds % 3600) / 60);
-            const secs  = totalSeconds % 60;
+            const mins = Math.floor((totalSeconds % 3600) / 60);
+            const secs = totalSeconds % 60;
             return { days, hours, mins, secs };
         }
 
@@ -401,20 +498,20 @@
             if (elapsedSec < 0) elapsedSec = 0;
 
             const elapsed = calcTimeParts(elapsedSec);
-            updateDigit('elapsed-days',  elapsed.days);
+            updateDigit('elapsed-days', elapsed.days);
             updateDigit('elapsed-hours', pad(elapsed.hours));
-            updateDigit('elapsed-mins',  pad(elapsed.mins));
-            updateDigit('elapsed-secs',  pad(elapsed.secs));
+            updateDigit('elapsed-mins', pad(elapsed.mins));
+            updateDigit('elapsed-secs', pad(elapsed.secs));
 
             // ── Countdown to END ──
             let remainingSec = Math.floor((END_TIME - now) / 1000);
             if (remainingSec < 0) remainingSec = 0;
 
             const remaining = calcTimeParts(remainingSec);
-            updateDigit('countdown-days',  remaining.days);
+            updateDigit('countdown-days', remaining.days);
             updateDigit('countdown-hours', pad(remaining.hours));
-            updateDigit('countdown-mins',  pad(remaining.mins));
-            updateDigit('countdown-secs',  pad(remaining.secs));
+            updateDigit('countdown-mins', pad(remaining.mins));
+            updateDigit('countdown-secs', pad(remaining.secs));
         }
 
         // ─── Sparkle particles ───
@@ -423,10 +520,10 @@
             const sparkle = document.createElement('div');
             sparkle.classList.add('sparkle');
             sparkle.style.left = Math.random() * 100 + 'vw';
-            sparkle.style.top  = (30 + Math.random() * 60) + 'vh';
+            sparkle.style.top = (30 + Math.random() * 60) + 'vh';
             sparkle.style.animationDuration = (3 + Math.random() * 4) + 's';
             sparkle.style.animationDelay = Math.random() * 2 + 's';
-            sparkle.style.width  = (2 + Math.random() * 3) + 'px';
+            sparkle.style.width = (2 + Math.random() * 3) + 'px';
             sparkle.style.height = sparkle.style.width;
             container.appendChild(sparkle);
 
@@ -444,7 +541,7 @@
         }
 
         // ─── Airplane animation ───
-        (function() {
+        (function () {
             const path = document.getElementById('flight-path');
             const planeGroup = document.getElementById('plane-group');
             const trail1 = document.querySelector('.trail-path');
@@ -522,4 +619,5 @@
     </script>
 
 </body>
+
 </html>
