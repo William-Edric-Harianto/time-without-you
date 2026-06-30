@@ -354,7 +354,7 @@
                     SAMO
                 </p>
                 <div class="text-2xl sm:text-3xl font-bold text-slate-600 tracking-tight" id="samo-pct">
-                    0.000000%
+                    0.0000000%
                 </div>
                 <div class="text-[11px] sm:text-xs text-slate-500 font-semibold tracking-wide mt-2" id="samo-timer">
                     0y 0m 0d 00h 00m 00s
@@ -374,7 +374,7 @@
                     BEE
                 </p>
                 <div class="text-2xl sm:text-3xl font-bold text-slate-600 tracking-tight" id="bee-pct">
-                    0.000000%
+                    0.0000000%
                 </div>
                 <div class="text-[11px] sm:text-xs text-slate-500 font-semibold tracking-wide mt-2" id="bee-timer">
                     0y 0m 0d 00h 00m 00s
@@ -496,9 +496,9 @@
             const pctSamo = msSamo > 0 ? (msDeket / msSamo) * 100 : 0;
             const pctBee = msBee > 0 ? (msDeket / msBee) * 100 : 0;
 
-            // Update percentage card values to 6th decimal place
-            document.getElementById('samo-pct').textContent = pctSamo.toFixed(6) + '%';
-            document.getElementById('bee-pct').textContent = pctBee.toFixed(6) + '%';
+            // Update percentage card values to 7th decimal place
+            document.getElementById('samo-pct').textContent = pctSamo.toFixed(7) + '%';
+            document.getElementById('bee-pct').textContent = pctBee.toFixed(7) + '%';
 
             // Calculate exact detailed timers (years, months, days, hours, mins, secs)
             const samoElapsed = calcDetailedTimeParts(SAMO_START, now);
