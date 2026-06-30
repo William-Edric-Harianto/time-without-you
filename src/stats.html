@@ -47,8 +47,7 @@
 
         html,
         body {
-            height: 100%;
-            overflow: hidden;
+            min-height: 100%;
         }
 
         body {
@@ -208,9 +207,12 @@
         }
 
         @keyframes colonPulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 opacity: 1;
             }
+
             50% {
                 opacity: 0.3;
             }
@@ -241,10 +243,16 @@
         .fade-up-delay-3 {
             animation-delay: 0.8s;
         }
+
+        /* Divider line */
+        .divider-line {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(147, 197, 253, 0.5), rgba(196, 181, 253, 0.5), transparent);
+        }
     </style>
 </head>
 
-<body class="font-sans text-slate-700 h-full">
+<body class="font-sans text-slate-700">
 
     <!-- Floating orbs background -->
     <div class="orb orb-1"></div>
@@ -255,7 +263,7 @@
     <div id="sparkles-container"></div>
 
     <!-- Main content -->
-    <main class="relative z-10 h-full flex flex-col items-center justify-center px-4 sm:px-6">
+    <main class="relative z-10 min-h-screen flex flex-col items-center justify-center px-4 sm:px-6 py-12">
 
         <!-- Title -->
         <div class="text-center mb-6 sm:mb-8 fade-up">
@@ -272,54 +280,121 @@
             <p class="text-center text-xs sm:text-sm font-medium text-slate-400 tracking-widest uppercase mb-4 sm:mb-6">
                 UDAH DEKET SEJAK.....
             </p>
-            
-            <div id="elapsed-display" class="flex items-center justify-center gap-1 sm:gap-2 text-slate-600">
+
+            <div id="elapsed-display" class="flex items-center justify-center gap-1 sm:gap-1.5 md:gap-2 text-slate-600">
+                <!-- Years -->
+                <div class="text-center">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+                        <span class="time-digit" id="elapsed-years">00</span>
+                    </div>
+                    <p class="text-[9px] sm:text-[10px] md:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Years</p>
+                </div>
+                <span class="text-xl sm:text-2xl md:text-3xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+
+                <!-- Months -->
+                <div class="text-center">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
+                        <span class="time-digit" id="elapsed-months">00</span>
+                    </div>
+                    <p class="text-[9px] sm:text-[10px] md:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Months</p>
+                </div>
+                <span class="text-xl sm:text-2xl md:text-3xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+
                 <!-- Days -->
                 <div class="text-center">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
                         <span class="time-digit" id="elapsed-days">00</span>
                     </div>
-                    <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Days</p>
+                    <p class="text-[9px] sm:text-[10px] md:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Days</p>
                 </div>
-                <span class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+                <span class="text-xl sm:text-2xl md:text-3xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
                 
                 <!-- Hours -->
                 <div class="text-center">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
                         <span class="time-digit" id="elapsed-hours">00</span>
                     </div>
-                    <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Hours</p>
+                    <p class="text-[9px] sm:text-[10px] md:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Hours</p>
                 </div>
-                <span class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+                <span class="text-xl sm:text-2xl md:text-3xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
                 
                 <!-- Minutes -->
                 <div class="text-center">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
                         <span class="time-digit" id="elapsed-mins">00</span>
                     </div>
-                    <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Mins</p>
+                    <p class="text-[9px] sm:text-[10px] md:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Mins</p>
                 </div>
-                <span class="text-2xl sm:text-3xl md:text-4xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
+                <span class="text-xl sm:text-2xl md:text-3xl font-light text-dream-300 colon-pulse self-start mt-1">:</span>
                 
                 <!-- Seconds -->
                 <div class="text-center">
-                    <div class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight">
+                    <div class="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight">
                         <span class="time-digit" id="elapsed-secs">00</span>
                     </div>
-                    <p class="text-[10px] sm:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Secs</p>
+                    <p class="text-[9px] sm:text-[10px] md:text-xs text-slate-400 mt-1 font-medium uppercase tracking-wider">Secs</p>
                 </div>
             </div>
         </div>
 
         <!-- Date range label -->
-        <p class="text-[10px] sm:text-xs text-slate-400/70 mt-4 sm:mt-6 tracking-wider font-light fade-up fade-up-delay-2">
+        <p
+            class="text-[10px] sm:text-xs text-slate-400/70 mt-4 sm:mt-6 tracking-wider font-light fade-up fade-up-delay-2">
             Since 24 May 2026, 00:00:00
         </p>
 
+        <!-- Divider -->
+        <div class="w-32 sm:w-48 divider-line my-6 fade-up fade-up-delay-2"></div>
+
+        <!-- Percentages Cards -->
+        <div class="flex flex-col sm:flex-row gap-4 w-full max-w-lg fade-up fade-up-delay-2">
+            <!-- Card 1: Samo -->
+            <div class="glass rounded-2xl sm:rounded-3xl p-6 flex-1 text-center">
+                <p class="text-xs sm:text-sm font-semibold text-slate-400 tracking-widest uppercase mb-2">
+                    SAMO
+                </p>
+                <div class="text-2xl sm:text-3xl font-bold text-slate-600 tracking-tight" id="samo-pct">
+                    0.000000%
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-500 font-semibold tracking-wide mt-2" id="samo-timer">
+                    0y 0m 0d 00h 00m 00s
+                </div>
+                <!-- Progress bar starting from right side -->
+                <div class="w-full h-1.5 bg-slate-200/50 rounded-full overflow-hidden mt-3 mb-1.5 flex justify-end">
+                    <div id="samo-bar" class="h-full bg-gradient-to-r from-dream-400 to-indigo-400 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                </div>
+                <p class="text-[10px] sm:text-xs text-slate-400/70 mt-1.5 font-light">
+                    Since 6 Oct 2007
+                </p>
+            </div>
+ 
+            <!-- Card 2: Bee -->
+            <div class="glass rounded-2xl sm:rounded-3xl p-6 flex-1 text-center">
+                <p class="text-xs sm:text-sm font-semibold text-slate-400 tracking-widest uppercase mb-2">
+                    BEE
+                </p>
+                <div class="text-2xl sm:text-3xl font-bold text-slate-600 tracking-tight" id="bee-pct">
+                    0.000000%
+                </div>
+                <div class="text-[11px] sm:text-xs text-slate-500 font-semibold tracking-wide mt-2" id="bee-timer">
+                    0y 0m 0d 00h 00m 00s
+                </div>
+                <!-- Progress bar starting from right side -->
+                <div class="w-full h-1.5 bg-slate-200/50 rounded-full overflow-hidden mt-3 mb-1.5 flex justify-end">
+                    <div id="bee-bar" class="h-full bg-gradient-to-r from-dream-400 to-indigo-400 rounded-full transition-all duration-500" style="width: 0%;"></div>
+                </div>
+                <p class="text-[10px] sm:text-xs text-slate-400/70 mt-1.5 font-light">
+                    Since 7 Jul 2006
+                </p>
+            </div>
+        </div>
+
         <!-- Navigation Back -->
-        <div class="mt-6 fade-up fade-up-delay-3">
-            <a href="../index.html" class="glass px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium text-slate-500 hover:text-dream-600 transition-all duration-300 hover:shadow-lg flex items-center gap-2 hover:scale-105 active:scale-95">
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-3.5 h-3.5">
+        <div class="mt-8 fade-up fade-up-delay-3">
+            <a href="../index.html"
+                class="glass px-6 py-2.5 rounded-full text-xs sm:text-sm font-medium text-slate-500 hover:text-dream-600 transition-all duration-300 hover:shadow-lg flex items-center gap-2 hover:scale-105 active:scale-95">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                    stroke="currentColor" class="w-3.5 h-3.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
                 </svg>
                 <span>Back to Timer</span>
@@ -329,12 +404,14 @@
     </main>
 
     <script>
-        // ─── Hard-coded start date ───
+        // ─── Hard-coded dates ───
         const START_TIME = new Date(2026, 4, 24, 0, 0, 0);  // May 24, 2026 00:00:00
+        const SAMO_START = new Date(2007, 9, 6, 0, 0, 0);  // Oct 6, 2007 00:00:00
+        const BEE_START = new Date(2006, 6, 7, 0, 0, 0);   // Jul 7, 2006 00:00:00
 
         // ─── Previous values for flip animation ───
         const prev = {
-            'elapsed-days': '', 'elapsed-hours': '', 'elapsed-mins': '', 'elapsed-secs': ''
+            'elapsed-years': '', 'elapsed-months': '', 'elapsed-days': '', 'elapsed-hours': '', 'elapsed-mins': '', 'elapsed-secs': ''
         };
 
         function pad(n) {
@@ -362,21 +439,81 @@
             return { days, hours, mins, secs };
         }
 
+        function calcDetailedTimeParts(startDate, endDate) {
+            let years = endDate.getFullYear() - startDate.getFullYear();
+            let months = endDate.getMonth() - startDate.getMonth();
+            let days = endDate.getDate() - startDate.getDate();
+            let hours = endDate.getHours() - startDate.getHours();
+            let mins = endDate.getMinutes() - startDate.getMinutes();
+            let secs = endDate.getSeconds() - startDate.getSeconds();
+
+            if (secs < 0) {
+                secs += 60;
+                mins--;
+            }
+            if (mins < 0) {
+                mins += 60;
+                hours--;
+            }
+            if (hours < 0) {
+                hours += 24;
+                days--;
+            }
+            if (days < 0) {
+                const prevMonth = new Date(endDate.getFullYear(), endDate.getMonth(), 0);
+                days += prevMonth.getDate();
+                months--;
+            }
+            if (months < 0) {
+                months += 12;
+                years--;
+            }
+
+            return { years, months, days, hours, mins, secs };
+        }
+
         function tick() {
             const now = new Date();
 
-            // ── Time elapsed since START ──
-            let elapsedSec = Math.floor((now - START_TIME) / 1000);
-            if (elapsedSec < 0) elapsedSec = 0;
+            // ── Time elapsed since START (milliseconds) ──
+            const msDeket = now - START_TIME;
 
-            const elapsed = calcTimeParts(elapsedSec);
-            updateDigit('elapsed-days', elapsed.days);
-            updateDigit('elapsed-hours', pad(elapsed.hours));
-            updateDigit('elapsed-mins', pad(elapsed.mins));
-            updateDigit('elapsed-secs', pad(elapsed.secs));
+            // Calculate exact detailed elapsed time for deket (years, months, days, hours, mins, secs)
+            const deketElapsed = calcDetailedTimeParts(START_TIME, now);
+
+            updateDigit('elapsed-years', pad(deketElapsed.years));
+            updateDigit('elapsed-months', pad(deketElapsed.months));
+            updateDigit('elapsed-days', pad(deketElapsed.days));
+            updateDigit('elapsed-hours', pad(deketElapsed.hours));
+            updateDigit('elapsed-mins', pad(deketElapsed.mins));
+            updateDigit('elapsed-secs', pad(deketElapsed.secs));
+
+            // ── Time elapsed for Samo and Bee (milliseconds) ──
+            const msSamo = now - SAMO_START;
+            const msBee = now - BEE_START;
+
+            // Calculate percentages
+            const pctSamo = msSamo > 0 ? (msDeket / msSamo) * 100 : 0;
+            const pctBee = msBee > 0 ? (msDeket / msBee) * 100 : 0;
+
+            // Update percentage card values to 6th decimal place
+            document.getElementById('samo-pct').textContent = pctSamo.toFixed(6) + '%';
+            document.getElementById('bee-pct').textContent = pctBee.toFixed(6) + '%';
+
+            // Calculate exact detailed timers (years, months, days, hours, mins, secs)
+            const samoElapsed = calcDetailedTimeParts(SAMO_START, now);
+            const beeElapsed = calcDetailedTimeParts(BEE_START, now);
+
+            // Update timer values
+            document.getElementById('samo-timer').textContent = `${samoElapsed.years}y ${samoElapsed.months}m ${samoElapsed.days}d ${pad(samoElapsed.hours)}h ${pad(samoElapsed.mins)}m ${pad(samoElapsed.secs)}s`;
+            document.getElementById('bee-timer').textContent = `${beeElapsed.years}y ${beeElapsed.months}m ${beeElapsed.days}d ${pad(beeElapsed.hours)}h ${pad(beeElapsed.mins)}m ${pad(beeElapsed.secs)}s`;
+
+            // Update percentage bar widths
+            document.getElementById('samo-bar').style.width = pctSamo + '%';
+            document.getElementById('bee-bar').style.width = pctBee + '%';
 
             // ── Dynamic tab title ──
-            document.title = `${elapsed.days}d ${pad(elapsed.hours)}h ${pad(elapsed.mins)}m ${pad(elapsed.secs)}s — Stats`;
+            document.title = `${deketElapsed.years}y ${deketElapsed.months}m ${deketElapsed.days}d ${pad(deketElapsed.hours)}h — Stats`;
         }
 
         // ─── Sparkle particles ───
